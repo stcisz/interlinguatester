@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.erly.interlinguaTester"
+        version     = "1.0.0"
+        versionCode = "10" >
+
+        <!-- versionCode is optional and Android only -->
+
+        <preference name="phonegap-version" value="3.5.0" />
+
+        <name>Interlingua tester</name>
+
+        <description>
+        	Narzdzie do testowania znajomiści słownika 
+        </description>
+
+        <author href="https://sites.google.com/site/interlinguatester" email="stcisz@gmail.com">
+        	Stanisław Ciszewski
+        </author>
+        
+        <preference name="permissions" value="none"/>
+        
+        <icon src="icon.png"/>
+
+    </widget>

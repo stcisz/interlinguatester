@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interlingua tester</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="app.min.css">
+    <style>
+      .app-page center {
+      	margin-top: 40px;
+      }
+      #sekcja {
+      	margin-bottom: 10px;
+      	margin-top: 10px;
+      	width: 80px; 
+      }
+      #tlumaczenie {
+      	margin-bottom: 10px;
+      	margin-top: 10px;
+      	width: 200px;
+      }
+      #niewidoczne {
+      	width: 0px;
+      	height: 0px;
+      	overflow: hidden;
+      }
+      #blad {
+      	width: 300px;
+      }
+      #ramka {
+      	overflow-y: scroll;
+      	height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="sekcja">
+      <div class="app-topbar">
+        <div class="app-title">Sekcja</div>
+       <div class="app-button right" id="poczatek">Rozpocznij test</div>
+      </div>
+      <div class="app-content">
+        <center>
+        	Podaj numer sekcji 1-30:<br>
+        	<input class="app-input" id="sekcja" type="number" min="1" max="30" placeholder="1"></input><br>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="test">
+      <div class="app-topbar">
+        <div class="app-button left" data-back data-autotitle></div>
+        <div class="app-title">Przetłumacz wyrazy</div>
+        <div class="app-button right" data-target="oceny">Oceń</div>
+      </div>
+      <div class="app-content">
+      	<center>
+      		<span id="tlumaczone">Tłumaczone</span><br>
+      		<input class="app-input" id="tlumaczenie"></input>
+      	</center>
+      	<div class="app-button" id="nastepny">Następny</div>
+      	<div class="app-button" id="poprzedni">Poprzedni</div>
+      </div>
+    </div>
+
+	<div class="app-page" data-page="oceny">
+     	<div class="app-topbar">
+     		<div class="app-button left" data-back data-autotitle></div>
+       	 	<div class="app-title">Oceny</div>
+     	</div>
+     	<div class="app-content">
+	     	<center>
+		     	Liczba poprawnych odpowiedzi to <span id="poprawne"></span> z <span id="ilosc"></span>.
+		     	<br>
+		     	Daje to wynik <span id="ocena"></span>. 
+		     	<br>
+		     	Oto popełnione błędy:
+		     	<br>
+		     	<div id="ramka">
+			     	<table id="bledy">
+			     		<tr>
+			     			<th>Słowo</th>
+			     			<th>Poprawne</th>
+			     			<th>Napisane</th>
+			     		</tr>
+			     	</table>
+			     </div>
+	     	</center>
+     	</div>
+     </div>
+
+	<div id="niewidoczne">
+	
+	
+a - do, w kierunku, przy
+ab - od, z
+alco - coś
+alcun - kilka
+alcuno - ktoś, kogoś
+alora - wtedy, wówczas, w takim przypadku
+altere - inny, drugi, odmienny
+ancora - jeszcze, wciąż, nadal
+anque - również, także
+ante - przed, z przodu, poprzednio
+apparte - oprócz, poza
+assatis - dość, dosyć, wystarczająco
+avante - naprzód, do przodu, z przodu, na przedzie
+acide - kwaśny
+acute - ostry, przenikliwy, bystry
+alte - wysoki, głośny
+automatic - automatyczny, samoczynny
+amar - drogi, ukochany
+artificial - sztuczny, udawany
+aspere - szorstki, chropowaty, nierówny
+aciero - stal
+aere - powietrze
+aqua - woda
+argento - srebro
+auro - złoto
+aco - igła
+ala - skrzydło
+angulo - kąt
+anulo - pierścionek
+ape - przczoła
+aquiero - dren, kanał
+aratro - pług
+arbore - drzewo, oś
+arco - łuk
+
+!
+
+arma - broń
+aure - ucho
+automobile - samochód
+ave - ptak
+accordo - umowa, ugoda
+action - akcja, działanie, udział
+agente - agent, operator
+alto - góra, górna część
+amico - przyjaciel
+amonta - ilość, suma
+animal - zwierze
+anno - rok
+apparato - aparat, urządzenie
+armea - armia, wojsko
+arte - sztuka
+artificio - trik, podstęp sztuczka
+assecurantia - asekuracja, ubezpieczenie
+assertion - twierdzenie
+attention - uwaga
+attraction - atrakcja
+autoritate - autorytet, władza
+autumno - jesień
+accusar - oskarżać, obwiniać, zarzucać
+adder - dodawać, przydawać, nadawać
+adjustar - regulować, poprawiać, dostosowywać
+amar - kochać, lubić
+amusar - bawić
+annunciar - zapowiadać, ogłaszać, anonsować, zwiastować
+arder - płonąć, pałać, goreć
+aperir - otwierać, rozpinać, włączać, zapalać, uruchaniać, torować, rozpoczynać
+appellar - nazywać, zwać, wołać, apelować
+apprender - uczyć, dowiadywać
+
+!
+
+approbar - przyjmować, aprobować
+apportar - przynosić, wnosić
+arguer - argumentować, kłucić
+arrivar - przybywać, nadchodzić, dochodzić
+ascender - wchodzić (na górę), wkraczać, wsiadać
+ascoltar - słuchać, nasłuchiwać
+assister - asystować, pomagać, uczestniczyć
+attaccar - atakować, przyczepiać, załączać
+attender - czekać, uczęszczać, uwzględniać
+attinger - docierać, uczęszczać
+audir - słyszeć
+ben - dobrze, dobro
+belle - ładny, piękny
+benigne - dobrotliwy, łagodny
+bon - dobry, spory
+brun - brązowy
+basse - niski, dolny
+blanc - biały
+blau - niebieski
+breve - krótki, zwięzły
+butyro - masło
+baca - jagoda
+balla - kula, pocisk, bila
+banda - banda, bandaż, taśma
+bandiera - chorągiew, flaga
+banio - łaźnia, kąpiel
+barca - barka, łódka
+barra - sztaba, listwa, belka
+barriera - bariera, przeszkoda
+
+!
+
+bassino - basen, miednica, miska
+baston - kij, patyk, laska
+billlet - bilet, zakwaterowanie
+boteca - sklep
+botta - but, trzewik, kozak
+bottilia - butelka
+bracio - ramie, poręcz
+branca - gałąź, ramie, oddział
+bricca - cegła
+brossa - szczotka
+bucca - usta, otwór
+bulbo - bulwa, cebula
+button - pąk, guzik, przycisk, pryszcz
+balancia - balans, waga
+banca - bank
+basso - dół, bas
+besonio - potrzeba
+bibliotheca - biblioteka
+bordo - krawędź, burta, brzeg
+basiar - całować
+batter - uderzać, bić, wybijać, stłuc
+biber - pić
+brillar - świecić, brylować
+bullir - gotować, wrzeć
+ci - tutaj, tu
+circa - wokół, wokoło
+como - jak, jako
+con - z(razem)
+contra - wbrew, przeciw
+cuje - którego, których, czyjego, czyich
+calide - ciepły, gorący
+car - drogi, kosztowny, ulubiony
+capace - obszerny, zdolny 
+cave - pusty, wklęsły, zapadły
+certe - pewny, przekonany
+chimic - chemiczny
+
+!
+
+clar - jasny, czysty, bezstronny, oczywisty
+commun - wspólny, zwykły, pospolity
+complexe - złorzony, skomplikowany
+consciente - świadomy
+correcte - poprawny, słuszny, właściwy
+complete - całkowity, kompletny
+contrari - sprzeczny, przeviwny
+cruel - okrutny
+curte - krótki
+carbon - węgiel
+carne - mięso
+cera - wosk
+corco - korek
+corio - skóra
+coton - bawełna
+creta - kreda
+cupro - miedź
+calcea - pończocha
+calcetta - skarpetka
+caldiera - kocioł
+camisa - koszula, nakrycie, zabezpieczenie
+campana - dzwonek
+can - pies
+capillo - włos
+cappelllo - kapelusz
+capite - głowa, szef, szczyt
+capra - koza
+carretta - wóz, powóz, wózek
+carro - wóz, wagon, karetka
+carta - karta, mapa
+casa - dom
+caseo - ser
+cassa - pudło, skrzynka, kasa
+catena - łańcuch
+catto - kot
+cauda - ogon, kolejka
+cavallo - koń
+cerebro - mózg
+
+!
+
+circulo - koło, krąg
+cisorios - nożyczki
+clave - klucz, klawisz
+clavo - paznokieć, gwóźdź, goździk
+coclear - łyżka
+coffro - kufer, skrzynia
+collo - szyja, kołnierz
+corbe - kosz
+corda - sznur, linia, cięciwa
+corde - serce
+corno - róg
+cortina - kurtyna
+cossino - poduszka
+croc - hak, haczyk
+cultello - nóż
+calor - ciepło, gorąco
+camera - pokój, izba
+cammino - komin, kominek
+campania - pole, wieś, kampania
+campo - pole, teren, obóz
+carga - ciężar, brzemie, zadanie, obowiązek
+caso - przypadek
+causa - powód, przyczyna, sprawa
+cavo - dziura, jaskinia
+celo - niebo, raj
+cena - kolacja
+chance - szansa
+cheque - czek
+choc - szok
+color - barwa, kolor, farba
+commercio - handel
+committee - komitet
+compania - kompania, towarzystwo
+concurso - konkurs
+condition - warunek, stan, kondycja
+conforto - pocieszenie, otucha
+copia - kopia
+corte - sąd, pałac, dziedziniec, podwórze, zaloty
+corpore - ciało, korpus
+
+!
+
+cosa - rzecz
+credito - kredyt
+crimine - zbrodnia, przestępstwo
+currente - potok, ptąd
+curva - zakręt, krzywa
+cader - upadać, spadać
+calcar - deptać, wydeptywać
+cambiar - zminiać, wyminiać
+cantar - śpiewać
+caper - chwytać, łapać, trzymać
+celar - chować, ukrywać, zatajać
+cercar - szukać, wyszukiwać, starać, usiłować
+cessar - kończyć, zaprzestawać, przerywać
+chassar - polować, gonić, wyganiać
+clauder - zamykać, kończyć
+cocinar - gotować
+cognoscer - znać
+colliger - zbierać, kolekcjonować, pobierać
+colpar - uderzać, bić
+combatter - zwalczać, walczyć
+comenciar - zaczynać, rozpoczynać
+comparar - porównywać
+comportar - nosić, zawierać
+comprar - kupować
+comprender - rozumieć, pojmować, zawierać, obejmować
+conjecturar - przypuszczać, zgadywać
+consiliar - radzić, zalecać
+contar - sprzeczny, przeciwny
+continer - zawierać, myśleć
+continuar - kontynuować, przedłużać, trwać dalej
+controlar - kontrolować, weryfikować
+coperir - przykrywać, pokrywać
+
+!
+
+costar - kosztować
+creder - przypuszczać, wierzyć, sądzić
+crescer - rosnąć
+critar - krzyczeć
+currer - biegać, gonić, spieszyć
+de - czyjś, czegoś
+deman - jutro
+despecto - niechęć
+dunque - zatem
+durante - podczas
+dextere - prawy, zwinny, zręczny
+difficile - trudny
+distante - odległy
+domestic - domowy, krajowy
+dulce - słodki, miękki, łagodny
+dur - twardy, trudny, niemiły, przykry
+debile - słaby, słabowity, niśmiały
+delicate - delikatny, wrażliwy, smaczny, wyborny
+differente - różny, odmienny
+distante - odległy
+dente - ząb
+digito - palec, cyfra
+damno - szkoda, strata, uszkodzenie
+debito - dług
+designo - rysunek, schemat, plan
+desiro - życzenie, pragnienie
+detalio - szczegół, detal
+digestion - trawienie
+direction - kierownictwo, kierunek
+disgusto - niesmak
+division - dywizja, dzielenie
+
+!
+
+domo - dom
+dono - podarunek
+dorso - plecy, grzbiey
+dar - dawać, udzielać, rozdawać, nadawać
+deber - musieć, zawdzięczać
+decider - decydować
+defender - bronić
+demandar - pytać, żądać
+depender - zależeć, podlegać
+descender - wysiadać, schodzić, opadać, zapadać,pochodzić, wywodzić
+describer - opisywać
+destruer - niszczyć
+developpar - rozwijać
+devenir - stawać, zostawać
+dicer - mówić, rzec, powiedzieć
+diffunder - upowszechniać, szerzyć
+diriger - kierować
+discoperir - odkrywać
+discuter - dyskutować, roztrząsać
+dispender - wydawać, marnotrawić
+distribuer - dystrybułować, rozpowszechniać, rozdawać karty
+disturbar - przeszkadzać, zakłucać
+dormir - spać
+dubitar - wątpić
+durar - trwać
+e - i
+ecce - oto
+esque - czy
+ex - z, były
+extra - oprócz, poza, za wyjątkiem
+elastic - elastyczny
+electric - elektryczny
+
+!
+
+equal - równy
+estranie - obcy, dziwny
+ecclesia - kościół
+effecto - efekt, dobytek
+effortio - wysiłek, staranie
+estate - lato
+etate - wiek
+exemplo - przykład
+existentia - egzystencja, byt
+experientia - doświadczenie
+experto - ekspert, specjalista
+evento - wydarzenie,  zdarzenie
+eliger - wybierać
+emplear - zatrudniać, wykorzystywać
+entrar - wchodzić
+errar - błądzić
+esser - być
+evitar - unikać
+excambiar - wyminiać
+excusar - wybaczać, usprawiedliwiać
+expander - rozprzestrzeniać, szerzyć, rozwijać
+expectar - oczekiwać, spodziewać
+explicar - wyjaśnić, tłumaczyć
+exprimer - wyciskać, wyrażać, ujmować w słowa
+extender - rozciągać, przedłużać, rozszeżać
+forsan - może, być może
+fatigate - zmęczony
+felice - szczęśliwy
+fertile - żyzny, urodzajny
+forte - mocny,silny
+frequente - częsty
+facile - łatwy
+false - fałszywy
+
+! 
+
+fede - brzydki
+feminin - kobiecy
+fixe - stały
+frigide - chłodny, zimny
+futur - przyszły
+ferro - żelazo
+fuma - dym
+facie - twarz
+fenestra - okno
+ferma - farma
+filo - wątek, nić, kabel, ostrze
+flagello - bicz, bat
+flammifero - zapałka
+flecha - strzałka, strzała
+folio - liść, kartka
+foreste - las
+formica - mrówka
+freno - hamulec, uzda, wędzidło
+furca - widelec
+furno - piec
+facto - fakt
+fame - głód
+familia - rodzina
+favor - życzliwość, przychylność
+fiction - fikcja, beletrystyka
+filio - syn
+fin - koniec, cel
+fissura - szczelina, pęknięcie
+flamma - płomień
+flor - kwiat
+foco - ogień, ostrzał, ognisko, ogniskowa, centrum
+forma - kształt, forma
+fortia - siła
+fratre - brat
+fronte - czoło, front
+fructo - owoc
+facer - robić, czynić, tworzyć, produkować, urządzać, spełniać
+faller - padać, upadać, nie powieść, zawieść
+
+!
+
+fluer - pływać biernie, wypływać
+fraccasar - rozbić, roztrzaskać, miażdżyć
+fricar - wcierać, trzeć
+fugir - uciekać
+fullar - ubijać, ugniatać, tratować, deptać, miażdżyć, gnieść
+functionar - funkcjonować
+general - ogólny, generalny
+grande - duży wielki, dorosły, szeroki, obszerny, wybitny, ważny
+grasse - tłusty
+gris - szary
+gas - gaz
+gelea - galareta, żelatyna
+glacie - lód
+gallina - kura
+gamba - noga
+guanto - rękawica
+genu - kolano
+gonna - spódnica
+gutta - kropla
+gutture - gardło
+gerente - przewodniczący, prowadzący
+governamento - rząd
+grado - stopień, wola,
+grandor - wielkość
+grano - ziarno
+gratias - podziękowania 
+gruppo - grupa, zespół
+guerra - wojna
+ganiar - wygrywać, zdobywać, zyskiwać
+gauder - cieszyć, radować
+glissar - ślizgać, ześlizgiwać, poślizgnąć, szybować
+guidar - prowadzić, oprowadzać, kierować
+
+!
+
+gustar - smakować, przypadać do gustu
+heri - wczoraj
+hodie - dzisiaj
+humide - wilgotny, mokry
+horologio - zegar
+harmonia - harmonia
+herba - trawa, zioło
+hiberno - zima
+historia - historia
+homine - człowiek, mężczyzna
+hora - godzina, czas, pora
+hospital - szpital
+hotel - hotel
+humor - humor
+haber - mieć
+hastar - spieszyć
+ille - tamten, ów
+in - w
+insimul - razem, wspólnie
+inter - między
+intra - wewnątrz, do wewnątrz
+io - ja
+iste - ten, to, ci
+importante - ważne
+intelligente - inteligentny
+irate - poirytowany
+incostose - niedrogi
+infante - dziecko
+ingenio - geniusz, talent, silnik, napęd
+insula - wyspa
+idea - idea, myśl, pojęcie
+industria - przemysł
+insecto - owad
+
+!
+
+instrumento - instrument
+interesse - zainteresowanie, odsetek, procent
+invention - wynalazek, inwencja
+imaginar - wyobrażać sobie, wymyślać
+impedir - przeszkadzać, zawadzać, powstrzymywać
+imprimer - drukować, odbijać, wytłaczć, podawać do wiadomości, przekazywać
+incontrar - napotykać, spotykać
+inseniar - uczyć, naiczać
+inviar - posyłać, wysyłać
+invitar - zapraszać
+ir - chodzić, iść, pójść
+jam - już, od razu, bezwłocznie
+jammais - kiedykolwiek, kiedyś, nigdy
+jalne - żółty
+juste - sprawiedliwy, dokładny
+juvene - młody
+jardin - ogród
+joiel - klejnot
+jornal - pamiętnik, gazeta, dziennik
+jentaculo - śniadanie
+jacer - leżeć, spoczywać
+jocar - grać, odgrywać
+judicar - osądzać, sądzić
+junger - łączyć
+la - ją
+le  - jego
+
+!
+
+large - duży, obszerny, hojny, szczodry
+libere - wolny, swobodny
+lisie - gładki, lśniący
+longe - długi, daleki, z dala
+laxe - luźny
+lente - powolny, lepki
+leve - lekki
+lacte - mleko
+lana - wełna
+latta - blacha
+laton - mosiądz
+ligno - drewno
+lino - len
+labio - usta, warga
+laco - jezioro
+lamina - ostrze
+lampa - lampa
+lecto - łóżko
+libro - książka
+linea - wiersz, linia, sznur
+lingua - język
+luna - księżyc
+labor - praca
+latere - bok, strona
+lege - ustawa, prawo
+limite - granica, bariera
+liquido - ciecz
+lista - lista, wykaz
+littera - litera, list, pismo, literatura
+loco - miejsce
+lumine - światło
+lunch - lunch
+lacerar - rozdzierać, drzeć
+lassar - pozwalać, zostawiać, powierzać
+lavar - myć
+ligar - oprawiać książki, łączyć, przypinać
+locar - lokować, umieszczać, wypożyczać, wynajmować
+luctar - walczyć, bić
+
+!
+
+mesmo - nawet
+minus - mniej, minus
+multe - dużo, liczni
+multo - bardzo
+maritate - zamężna, żonaty
+mascule - męski
+material - materialny
+medical - leczniczy, medyczny
+mesme - sam
+militar - miltarny, wojskowy
+morte - martwy, zmarły
+munde - czysty
+magre - szczupły, lichy
+mal - zły, źle
+malade - chory
+medie - średni, połowiczny
+mollle - mięki, łagodny
+metallo - metal
+mano - ręka
+mantello - płaszcz
+martello - młot
+mento - broda
+muro - ściana, mur
+musca - mucha
+musculo - mięsień
+machina - maszyna
+maniera - maniera, sposób, tryb
+mar - morze
+marca - znak, znacznik, tag
+massa - masa, buława, laska
+matino - ranek
+matre - matka
+medio - medium, narzędzie, środek
+memoria - pamięć, wspomnienie
+mense - miesiąc
+mente - umysł
+mercato - rynek
+
+!
+
+mina - mina, kopalnia
+minuta - minuta
+moneta - monera, pieniądz
+monte - góra
+motion - ruch, wniosek
+mundo - świat
+musica - muzyka
+mancar - brakować
+mangiar - jeść
+mesurar - mierzyć
+miscer - mieszać, tasować
+mitter - kłaść, wsadzać, wtykać, stawiać
+monstrar - pokazywać, przejawiać, okazywać
+montar - wsiadać, dosiadać,wspinać układać w stos, montować
+morder - gryźć, kąsać
+morir - umierać
+mover - ruszać, przesuwać, emocjonować
+nemo - nikt
+ni - ani
+nihil - nic
+no - nie
+non - nie
+nonne - nieprawdaż
+nulle - zerowy, żaden
+nunc - teraz
+natural - naturalny, przyrodniczy
+necessari - konieczny, niezbędny
+nigre - czarny
+normal - normalny
+nove - nowy
+nebula - mgła
+nive - śnieg
+naso - nos
+nave - statek
+nervo - nerw, ścięgno
+
+!
+
+nodo - węzeł
+nube - chmura
+nuce - orzech
+nation - naród
+natura - natura, przyroda
+nivello - poziom, szczebel, poziomica
+nocte - noc
+nomine - imię, nazwa, nazwisko
+nota - banknot, uwaga, ocena, nuta
+numero - numer, liczba
+nascer - rodzić się
+natar - pływać czynnie
+nivar - padać śnieg, śnieżyć
+o - albo, lub
+omne - każdy, wszystek, wszelki
+on - zaimek nieosobowy
+orange - pomarańczowy
+obscur - ciemny
+oleo - olej
+oculo - oko
+officio - biuro
+osso - kość
+ove - owca
+ovo - jajko
+observation - obserwacja, przestrzeganie
+occupation - okupacja, zajęcie
+odor - zapach
+operation - operacja, funkcjonowanie
+opinion - zdanie, opinia
+opportunitate - sposobność, okazja
+
+!
+
+ordine - porządek, styl, kategoria
+organisation - organizacja
+ornamento - ornament, ozdoba
+oblidar - zapominać
+obtener - otzymywać, uzyskiwać
+occider - zabijać
+occurrer - zdażać, wydażać, bywać
+odiar - nienawidzić
+offerer - oferować, ofiarować, proponować
+olfacer - wąchać
+per - przy pomocy, przez
+plure - liczni, kilka
+plus - plus, więcej, bardziej
+post - potem, za, po
+poco - mało, niewiele
+pro - dla, aby
+proque - dlaczego, ponieważ, gdyż
+parallel - równoległy, analogiczny, podobny
+passate - miniony, zeszły, przeszły
+periculose - niebezpieczny, ryzykowny
+physic - fizyczny
+platte - płaski
+plen - pełny
+politic - polityczny
+possibile - możliwy
+povre - biedny
+presente - obecny, terażniejszy, niniejszy
+preste - szybki, gotowy
+prime - pierwszy
+principal - główny, naczelny, pryncypialny
+private - prywarny
+probabile - prawdopodobny
+profunde - głęboki
+
+!
+
+proprie - własny, właściwy, należyty, odpowiedni
+proxime - blizki, bliźni, najbliższy
+parve - mały
+public - publiczny
+pan - chleb
+papiro - papier, bibuła
+pasta - ciasto
+petra - kamień
+plumbo - ołów
+pulvere - proch, pył
+pacchetto - paczuszka, pakiet
+pala - łopata
+pantalones - spodnie
+parapluvia - parasol
+pariete - ściana, mur
+passporto - paszport
+patata - ziemniak
+pectine - grzebień
+pectore - pierś
+pede - stopa
+pelle - skóra
+penna - pióro
+pictura - obraz
+pipa - fajka
+pisce - ryba
+plana - płaszczyzna, równina
+planca - półka, deska
+platto - danie, talerz
+pluma - pióro
+połlice - kciuk
+pomo - jabłko
+ponte - most
+porco - świnia, wieprzowina
+porta - brama, drzwi
+potto - wyroby garncarskie
+puero - chłopiec
+pumpa - pompa
+pace - pokój, spokój
+pagina - strona, stronica
+pais - kraj
+parola - wyraz, przemowa
+parte - część, rata, strona
+
+!
+
+passo - krok, przejście
+patre - ojciec
+pecia - kawałek, skrawek
+pena - trud, wysiłek, kara, męka
+persona - osoba
+peso - waga, ciężar, masa
+plano - plan, schemat, projekt, płaszczyzna
+planta - roślina
+policia - policja
+populo - lud
+porto - port, postawa, postura
+position - pozycja
+precio - cena, koszt, odpłatność
+primavera - wiosna
+prision - więzienie
+processo - proces, procedura, przetwarzanie
+profito - korzyść, zysk, zaleta
+progresso - postęp
+proprietate - własność, cecha
+prosa - proza
+puncto - kropka, punkt
+pagar - płacić, spłacać
+pardonar - wybaczać, przebaczać
+parer - wydawać, pojawiać, ukazywać, rodzić
+parlar - mówić
+partir - dzielić ,odjeżdżać, odchodzić
+passar - przechodzić, przekraczać, mijać
+pender - brać, chwytać, podejmować, przedsiębrać
+pensar - myśleć, sądzić
+perder - przegrywać,gubić, tracić,przegapić, przepuścić
+pertiner - należeć
+placer - podobać się
+planger - uskarżać, narzekać
+plicar - składać, zwijać, zginać, zaginać
+plorar - płakać
+
+!
+
+pluver - padać deszcz
+poner - kłaść, stawiać,sadzać, zachodzić
+portar - nosić, wnosić, przenosić, ponosić
+posseder - mieć, posiadać, owładnąć
+poter - móc, być w stanie
+preferer - preferować, być w stanie
+premer - naciskać, uciskać
+prender - brać, chwytać, podejmować, przedsiębrać
+preparar - przygotowywać, preparować
+pressar - naciskać, wyciskać, drukować
+prestar - pożyczać, udzielać
+prevenir - zapobiegać, uniemożliwiać, ostrzegać, przestrzegać
+producer - produkować, wytwarzać
+prohibir - zabraniać, zakazywać
+promitter - obiecywać, przyrzekać
+protestar - protestować, sprzeciwiać, zapewniać, potwierdzać
+provar - wykazywać, udowadniać
+pulsar - pchnąć, popchńąć, pulsować
+punir - karać
+qual - jaki, który
+quando - kiedy, gdy
+quante - ile
+quasi - niemal, prawie, w pewnym sensie
+que - co, cóż, niż
+qui - kto
+quiete - wolny, kwita
+quadrato - kwadrat
+
+!
+
+quatro - cztery
+quitantia - pokwitowanie
+qualitate - cecha, jakość
+question - kwestia, pytanie, problem
+querelar - narzekać, sprzeczać, kłucić
+retro - z tyłu, do tyłu, wstecz
+recte - prosty
+regular - regularny
+responsabile - odpowiedzialny
+rigide - sztywny
+ronde - okrągły
+rubie - czerwony
+ric - bogaty
+ris - ryż
+radice - pierwiastek, korzeń, rdzeń (wyrazowy)
+rasorio - golarka, brzytwa, żyletka
+ratto - szczór
+resorto - resor, sprężyna
+rete - sieć, siatka
+roba - spódnica
+rota - koło
+radio - radio, promień
+rango - ranga, rząd, szereg, wiersz
+rata - rata, stawka, współczynnik
+ration - racja, powód, przyczyna
+reaction - reakcja, odrzut
+recompensa - rekompensata, nagroda
+registro - rejestr, zapis
+regula - reguła, norma
+
+!
+
+relation - stosunek, relacja, odniesienie
+religion - religia
+repasto - posiłek
+restaurante - restauracja
+rhythmo - rytm
+riviera - rzeka
+ruito - hałas
+reciper - odbierać, otrzymywać, dostawać
+recommendar - polecać, rekomendować, zalecać
+refusar - odmawiać, odrzucać
+regrettar - żałować
+reguardar - spoglądać, patrzeć, oglądać, uważać, dotyczyć
+reparar - naprawiać, powetować
+reposar - spoczywać
+repeter - powtarzać, repetować
+representar - reprezentować, przedstawiać, stanowić
+respectar - szanować, respektować, przestrzegać
+responder - odpowiadać
+restar - pozostawać
+retornar - wracać, powracać, oddawać
+revider - rewidować, zobaczyć ponownie
+rider - śmiać
+rolar - toczyć
+rumper - rozbijać, tłuc, przełamywać, zrywać, stłuc się
+sed - lecz
+sempre - zawsze, ciągle, stale
+solo - dopiero, tylko
+si - tak, jeśli
+sin - bez
+sub - pod
+supra - na wierzchu, nad, na górze
+
+!
+
+sur - na
+sage - mądry
+san - zdrowy, przy zdrowych zmysłach
+secunde - drugi
+separate - oddzielony
+seriose - poważny
+simile - podobny
+spisse - gruby
+subite - nagły, nieoczekiwany
+salvage - dziki
+secrete - tajemny, sekretny
+secur - pewny, bezpieczny
+sic - suchy, wytrawny
+simple - prosty, łatwy
+solide - solidny, pełny, lity
+special - specjalny
+stricte - ścisły, precyzyjny
+stupide - głupi, zaskoczony
+sablo - piassek
+sal - sól
+sanguine - krew
+sapon -  mydło
+seta - jedwab
+stanno - cyna
+sucro - cukier
+suppa - zupa
+scala - schody, skala
+scarpa - but
+schola - szkoła
+sede - siedziba
+semine - nasiono, ziarno
+serpente - wąż
+serratura - zamek do drzwi
+sibilio - gwizd, świst
+simia - małpa
+situla - wiadro
+sol - słońce
+solo - podłoga, ziemia, gleba
+spinula - agrafka, zapinka
+spongia - gąbka
+station - stacja, postój, pora roku
+stella - gwiazda
+
+!
+
+stilo - styl, ołówek
+stirpe - zapas, zasób
+stomacho - żołądek
+strata - ulica
+sala - sala
+scientia - nauka
+senior - pan
+senso - zmysł, rozsądek
+septimana - tydzień
+sete - pragnienie
+sexo - płeć, seks
+signo - znak
+societate - spłeczeństwo, spółka
+somno - sen
+sonio - sen
+soror - siostra
+sorta - rodzaj
+spatio - przestrzeń
+stadio - stadion, etap
+structura - struktura
+studio - studiowanie, studio, studium
+substantia - substancja, sens, sedno
+successo - sukces, zdarzenie
+supporto - poparcie, wsparcie
+systema - system
+saltar - skakać, przeskakiwać, pomijać
+salutar - pozdrawiać, salutować
+salvar - ratować, ocalać,wbawiać
+saper - wiedzieć
+scriber - pisać
+secar - ciąć, przecinać
+seliger -  wybierać
+sequer - wynikać, następować, śledzić
+sentir - odczuwać, czuć
+servir - służyć, obsługiwać, serwować, posługiwać
+solver - rozpuszczać, rozwiązywać
+
+!
+
+sonar - brzmieć, dźwięczeć, grać nainstrumencie
+sortir - wychodzić
+sparniar - oszczędzać, chronić, zachowywać
+sperar - mieć nadzieję
+star - stać
+sternutar - kichać
+stoppar - stopować, zatrzymywać
+struer - porządkować, urządzać, przygotowywać, budować, konstruować
+succuter - potrząsać, wstrząsać
+suer - szyć, zszywać
+sufflar - dmuchać, podpowiadać
+suggerer - sugerować
+supponer - mniemać, przypuszczać, zakładać
+surprender - odkrywać, ujawniać, zaskakiwać
+surrider - uśmiechać
+tanto - tak bardzo, w ten sposób
+tal - taki
+tosto - wkrótce
+totevia - wszelako, jednak, tym niemniej
+tote - wszelki, cały, wszystek
+trans - przez, poprzez
+troppo - za, zbyt, zanadto
+tu - twój
+tarde - późno
+triste - smutny
+tela - sieć
+tinta - farba, atrament
+tabula - tablica, stół, stolik
+tabuliero - plansza, blat
+tasca - kieszeń, zadanie
+tecto - sufit, dach
+
+!
+
+timbro - pieczęć, stempel, znaczek
+tiratorio - szuflada
+torta - tort
+traino - pociąg
+tubo - rura, kanał, przewód
+taxa - stopa, taksa, podatek
+tempore - czas, moment, pogoda
+tendentia - tendencja, skłonność, inklinacja
+telephono - telefon
+terra - ziemia
+theatro - teatr, scena, miejsce, teren
+theoria - teoria
+timor - strach, obawa
+tonitro - grzmot
+tener - trzymać za, uważać za
+tentar - próbować, kusić, namawiać, zachęcać
+tirar - strzelać, ciągnąć, wyciægać, czerpać, drukować, odbijać
+toccar - dotykać, wzruszać, poruszać
+tornar - skręcać
+torquer - skręcać, wykręcać, wykrzywiać
+traducer - przekazywać, przewozić, przenosić, tłumaczyć
+transportar - transportować, przewozić
+trovar - uważać za, znajdować
+tussir - kaszleć
+ubi - dokąd, gdzie, gdy, kiedy
+ulle - jakikolwiek
+ultra - po drugiej stronie, poza, oprócz
+un - jeden, pewien, jakiś
+usque - do, aż do
+
+!
+
+utile - użyteczny, pożyteczny
+ultime - ostatni
+urbe - miasto
+unda - fala
+umbra - cień
+unitate - jedność, jednostka
+universitate - uniwersytet
+utensile - narzędzie
+usar - mieć zwyczaj, używać
+verso - ku, w kierunku, wiersz, odwrotna strona katty
+vos - wy
+ver - prawdziwy
+vigile - czujny
+violente - gwałtowny
+viscose - lepki, kleisty
+verde - zielony
+vetule - stary
+vapor - para wodna
+veneno - trucizna, jad
+vino - wino
+vitro - szkło
+vela - żagiel
+verme - robak
+vite - winorośl
+valor - wartość
+vasculo - naczynie, pojemnik, kontener
+vespere - wieczór
+vento - wiatr
+vergonia - wstyd
+vestimento - ubranie, ubiór
+via - droga, trasa
+vice - raz
+vista - wzrok, perspektywa
+voce - głos
+volatile - drób, ptactwo
+
+!
+
+vulnere - rana, zranienie
+vader - chodzić
+venir - przychodzić, nadchodzić
+vender - sprzedawać
+versar - uzyskiwać biegłość wprawę
+vestir - ubierać 
+viagiar - jechać, podróżować
+vider - widzieć
+vincer - zwyciężać, pokonywać,, przezwyciężać
+visitar - odwiedzać, wizytować
+viver - żyć
+vocar - wołać, wzywać
+volar - fruwać, latać
+voler - chcieć
+
+	</div>
+
+
+    <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
+    
+    var index = 0;
+    var daneTest = [];
+    var selector = 0;
+    
+      App.controller('sekcja', function (page) {
+    	  
+    	  $(page).on("appReady", function() {
+	      	$("#sekcja").on("change", function() {
+	      		index = parseInt($("#sekcja").val()) - 1;
+	      		daneTest = [];
+	      	});
+	      	$("#sekcja").on("keyup", function() {
+	      		index = parseInt($("#sekcja").val()) - 1;
+	      		daneTest = [];
+	      	});
+	      	$("#poczatek").on("click", function() {
+	      		if (index < 0 || index > 30) {
+	      			App.dialog({
+	      				title: "Błędny numer",
+	      				text: "Numer swkcji zawiera się w przedziale od 1 do 30.",
+	      				okButton: "Powrót"
+	      			});
+	      			return;
+	      		}
+	      		App.load("test");
+	      	});
+    	  });
+      });
+      
+      App.controller('test', function (page) {
+		$(page).on("appReady", function() {
+			if (daneTest.length > 0) {
+				$("#tlumaczone").text(daneTest[selector].dane);
+				$("#tlumaczenie").val(daneTest[selector].odp);
+				return;
+			}
+			var dane = $("#niewidoczne").text().split("!")[index].trim();
+			var podziel = dane.split("\n"); 
+			var res = [];
+			for (var i = 0; i < podziel.length; i++) {
+				linia = podziel[i].split("-");
+				res.push({ 
+					slowo:  linia[0].trim(), 
+					dane: linia[1].trim(), 
+					odp: "" 
+				});
+			}
+			
+			for (i = res.length -1; i > 0; i--) {
+				var j = Math.floor(Math.random() * i);
+				var tmp = res[i];
+				res[i] = res[j];
+				res[j] = tmp;
+			}
+			
+			daneTest = res.slice(0, Math.floor(res.length *2 / 3));
+			selector = 0;
+			
+			$("#tlumaczone").text(daneTest[selector].dane);
+			$("#tlumaczenie").val(daneTest[selector].odp);
+			
+			$("#nastepny").on("click", function() {
+				if (selector == daneTest.length - 1) {
+					App.dialog({
+						title: "Koniec testu",
+						text: "Dotarłeś do końca testu. Kiknij Oceń aby sprawdzić wyniki.",
+						okButton: "Koniec"
+					});
+					return;
+				}
+				selector += 1;
+				$("#tlumaczone").text(daneTest[selector].dane);
+				$("#tlumaczenie").val(daneTest[selector].odp);
+			});
+		
+			$("#poprzedni").on("click", function() {
+				if (selector == 0) return;
+				selector -= 1;
+				$("#tlumaczone").text(daneTest[selector].dane);
+				$("#tlumaczenie").val(daneTest[selector].odp);
+			});
+			
+			$("#tlumaczenie").on("keyup", function() {
+				daneTest[selector].odp = $("#tlumaczenie").val();
+			});
+		});
+      });
+      
+      App.controller('oceny', function (page) {
+    	  $(page).on("appReady", function() {
+    		 var dane = daneTest.sort(function (a,b) {
+    			 if (a.slowo < b.slowo) return -1;
+    			 if (a.slowo > b.slowo) return 1;
+    			 return 0;
+    		 });
+    		 odp = 0;
+    		 for (var i = 0; i < dane.length; i++) {
+    			 if (dane[i].odp == dane[i].slowo) {
+    				 odp++;
+    			 } else {
+    				 wiersz = "<tr><td>" + dane[i].dane + "</td><td>" + dane[i].slowo + "</td><td>" + dane[i].odp + "</td></tr>";
+    				 $("#bledy").append(wiersz);
+    			 }
+    		 }
+    		 $("#poprawne").text(odp);
+    		 $("#ilosc").text(dane.length);
+    		 
+    		 function ocena(punkty) {
+    			 if (punkty < 0.5) return "ndst";
+    			 if (punkty < 0.75) return "dst";
+    			 if (punkty < 0.90) return "db";
+    			 return "bdb";
+    		 }
+    		 $("#ocena").text(ocena(odp/dane.length));
+    	  });
+      });
+      
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('sekcja');
+      }
+    </script>
+  </body>
+</html>
