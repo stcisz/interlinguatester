@@ -1,1 +1,1 @@
-# interlingustester
+# interlinguatester
