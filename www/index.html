@@ -1293,7 +1293,7 @@ voler - chcieć
       });
       
       try {
-        App.restore();
+        App.restore({maxAge: 60 * 1000});
       } catch (err) {
         App.load('sekcja');
       }
